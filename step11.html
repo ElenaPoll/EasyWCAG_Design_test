@@ -19,7 +19,8 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            /* Rimosso height 100% fisso per permettere lo scroll */
+            min-height: 100%;
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: var(--text-main);
@@ -29,22 +30,23 @@
         }
 
         .main-container {
-            width: 85%;
+            width: 90%; /* Aumentato leggermente per mobile */
             max-width: 1000px;
-            height: 100vh;
+            /* Cambiato height in min-height per evitare ritagli */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding: 60px 0;
+            padding: 40px 0; /* Ridotto padding superiore */
             box-sizing: border-box;
         }
 
         .header-row {
-            margin-bottom: 60px;
+            margin-bottom: 30px; /* Ridotto margine */
         }
 
         .title {
             color: var(--primary-green);
-            font-size: 2.4rem;
+            font-size: 2rem; /* Leggermente più piccolo per base mobile */
             margin: 0;
             font-weight: 600;
             letter-spacing: -0.5px;
@@ -55,9 +57,9 @@
         }
 
         .content p {
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
             color: var(--text-light);
             max-width: 900px;
         }
@@ -68,16 +70,17 @@
             font-weight: 500;
             border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
+            word-break: break-all; /* Evita che link lunghi rompano il layout */
         }
 
         .content a:hover {
             border-bottom: 1px solid var(--accent-blue);
         }
 
-        /* Stili per la sezione Condividi */
+        /* Stili per la sezione Condividi - Resi flessibili */
         .share-section {
-            margin-top: 40px;
-            padding: 25px;
+            margin-top: 30px;
+            padding: 20px;
             background-color: #fcfcfc;
             border: 1px dashed #ddd;
             border-radius: 12px;
@@ -85,29 +88,34 @@
 
         .copy-wrapper {
             display: flex;
+            flex-wrap: wrap; /* Permette al bottone di andare a capo */
             align-items: center;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .link-display {
             background: #eee;
-            padding: 8px 15px;
+            padding: 10px;
             border-radius: 6px;
             font-family: monospace;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-main);
+            flex-grow: 1;
+            word-break: break-all; /* Fondamentale per mobile */
+            border: 1px solid #ddd;
         }
 
         .btn-copy {
             background-color: var(--primary-green);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
             transition: background 0.3s;
+            width: 100%; /* Default mobile: larghezza piena */
         }
 
         .btn-copy:hover {
@@ -121,7 +129,7 @@
         .navigation {
             display: flex;
             justify-content: flex-start;
-            margin-top: auto;
+            margin-top: 40px;
             padding-bottom: 20px;
         }
 
@@ -139,14 +147,23 @@
             border: 1px solid #e0e0e0;
         }
 
-        .btn-back:hover {
-            background-color: var(--bg-hover);
-            transform: translateY(-2px);
-        }
-
-        .arrow {
-            font-size: 1.1rem;
-            margin-right: 10px;
+        /* --- MEDIA QUERIES PER DESKTOP --- */
+        @media (min-width: 768px) {
+            .main-container {
+                padding: 60px 0;
+            }
+            .title {
+                font-size: 2.4rem;
+            }
+            .header-row {
+                margin-bottom: 60px;
+            }
+            .btn-copy {
+                width: auto; /* Torna a larghezza naturale su PC */
+            }
+            .link-display {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -157,25 +174,25 @@
             <h1 class="title">Questionario</h1>
         </header>
 
-        <section class="content">
+        <article class="content">
             <p>Grazie mille! Siamo quasi alla fine del test.</p>
             <p>Ora arriva la parte più importante: la tua opinione.</p>
             <p>Ti chiedo di compilare il seguente <a href="https://docs.google.com/forms/d/e/1FAIpQLSekfYcmEkUtaa_bNNS_Wdb7FynyOEusLGVQlNlhBkNDS8ZVWQ/viewform" target="_blank">questionario anonimo</a> per condividere le tue impressioni sullo strumento EasyWCAG.</p>
             
-            <div class="share-section">
+            <section class="share-section">
                 <p>Se conosci altri web designer che potrebbero partecipare a questa ricerca, condividi con loro il link all'attività:</p>
                 <div class="copy-wrapper">
                     <span class="link-display" id="linkToCopy">https://elenapoll.github.io/EasyWCAG_Design_test/</span>
                     <button class="btn-copy" onclick="copyLink()" id="copyBtn">Copia link</button>
                 </div>
-            </div>
+            </section>
 
             <p style="margin-top: 30px;">Grazie ancora per il tempo che hai dedicato a questo test!</p>
-        </section>
+        </article>
 
         <footer class="navigation">
             <a href="step10.html" class="btn-back">
-                <span class="arrow">&lsaquo;</span> Torna indietro
+                <span class="arrow" aria-hidden="true">&lsaquo;</span> Torna indietro
             </a>
         </footer>
     </main>
@@ -194,6 +211,8 @@
                     btn.innerText = originalText;
                     btn.classList.remove('copied');
                 }, 2000);
+            }).catch(err => {
+                console.error('Errore nel copia:', err);
             });
         }
     </script>
