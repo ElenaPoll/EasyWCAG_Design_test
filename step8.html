@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyWCAG test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #88b04b;
+            --timer-yellow: #f1c40f;
+            --text-main: #2c3e50;
+            --text-light: #5f6a72;
+            --bg-button: #f8f9fa;
+            --bg-hover: #e9ecef;
+            --accent-blue: #3498db;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .main-container {
+            width: 85%;
+            max-width: 1000px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 50px 0;
+            box-sizing: border-box;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            color: var(--primary-green);
+            font-size: 2.4rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .timer-container {
+            display: flex;
+            align-items: center;
+            color: var(--timer-yellow);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .timer-icon {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+        }
+
+        .content p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            color: var(--text-light);
+        }
+
+        /* --- LISTA CODICI COPIABILI --- */
+        .info-list {
+            list-style-type: disc;
+            margin: 25px 0 40px 20px;
+            padding: 0;
+        }
+
+        .info-list li {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        /* Codici colore meno Bold */
+        .hex-code {
+            font-family: 'Fira Code', monospace;
+            font-weight: 500; /* Ridotto da 600 */
+            color: var(--text-main);
+            padding: 2px 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: all;
+            transition: all 0.2s;
+        }
+
+        .hex-code:hover {
+            color: var(--accent-blue); /* Cambia colore al passaggio per feedback */
+            background-color: #f8f9fa;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .palette-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* --- NAVIGAZIONE E LINK --- */
+        a, a:visited {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--bg-button);
+            color: var(--text-main) !important;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .arrow { margin: 0 8px; }
+    </style>
+</head>
+<body>
+
+
+
+    <main class="main-container">
+        <header class="header-row">
+            <h1 class="title">Task 5</h1>
+            
+            <div class="timer-container">
+                <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Quanto desideri</span>
+            </div>
+        </header>
+
+        <section class="content">
+            <p>Ottimo! Ora ti chiedo di <strong> provare a ripetere i task precedenti</strong>, utilizzando <a href="https://elenapoll.github.io/easywcag/" target="_blank">EasyWCAG</a> come strumento di supporto per la tua analisi.</p>
+            <p>Dai un’occhiata alla palette colori qui sotto e prova a valutarne l’accessibilità.</p>
+            <p>Quando hai terminato, torna qui per proseguire con i passaggi successivi.</p>
+
+             <p>Di seguito le informazioni importanti della palette, come puoi vedere nell’immagine sottostante:</p>
+            
+            <ul class="info-list">
+                <li>Titolo &rarr; 20 pt colore <span class="hex-code" title="Clicca per selezionare">#a87f8a</span> su sfondo <span class="hex-code" title="Clicca per selezionare">#ffffff</span></li>
+                <li>Didascalia &rarr; 12 pt colore <span class="hex-code" title="Clicca per selezionare">#ffffff</span> su sfondo <span class="hex-code" title="Clicca per selezionare">#a87f8a</span></li>
+                <li>Testo &rarr; 12 pt colore <span class="hex-code" title="Clicca per selezionare">#1b4371</span></li>
+            </ul>
+
+            <div class="image-container">
+<img src="palette.png" alt="Palette Colori" class="palette-img" style="border: 1px solid black;">
+            </div>
+        </section>
+
+
+        <footer class="navigation">
+            <a href="step7.html" class="btn">
+                <span class="arrow">&lsaquo;</span> Torna indietro
+            </a>
+            <a href="step9.html" class="btn">
+                Passa all'attività successiva <span class="arrow">&rsaquo;</span>
+            </a>
+        </footer>
+    </main>
+
+</body>
+</html>

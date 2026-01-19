@@ -1,0 +1,90 @@
+/* Reset dei margini e scelta del font */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenitore principale */
+.main-container {
+    width: 85%;
+    max-width: 1000px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* --- SEZIONE LINK: Forza il colore azzurro --- */
+a, a:visited {
+    color: #3498db; /* Azzurro */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #2980b9; /* Un azzurro leggermente più scuro al passaggio del mouse */
+    text-decoration: underline;
+}
+
+/* Stile del titolo verde */
+.title {
+    color: #88b04b;
+    font-size: 2.5rem;
+    margin-bottom: 80px;
+}
+
+/* Stile dei paragrafi */
+.content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    max-width: 850px;
+}
+
+/* Stile per l'immagine con bordo nero */
+.palette-img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid black; /* Bordo nero di 2 pixel */
+    border-radius: 4px;      /* Angoli leggermente arrotondati */
+    display: block;          /* Evita spazi vuoti sotto l'immagine */
+    margin: 20px 0;          /* Aggiunge un po' di respiro sopra e sotto */
+}
+
+/* Posizionamento del pulsante */
+.footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
+
+/* Stile del pulsante */
+.btn-start {
+    background-color: #eeeeee;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.btn-start:hover {
+    background-color: #e0e0e0;
+    color: #333; 
+}
+
+.arrow {
+    margin-left: 10px;
+    font-weight: bold;
+}
